@@ -1,5 +1,3 @@
-int hishigata = 30;
-
 void setup(){
   size(1600,1600);
   colorMode(HSB,360,100,100);
