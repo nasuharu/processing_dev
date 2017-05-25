@@ -1,34 +1,43 @@
-float xmag, ymag = 0;
-float newXmag, newYmag = 0; 
- 
 float my_timer;
+float x = 0.0;
+float y = 0.0;
 
-void setup() 
-{ 
+
+void setup() { 
+  
   size(800, 800, P3D); 
   noStroke(); 
   my_timer = 0.0;
+  
 } 
 
-
-
-void draw()  
-{ 
+void draw(){
+  float easing;
+  if(mousePressed == true){
+    easing = 0.10;
+  }
+  else{
+    easing = 0.03;
+  }
   background(100);
   my_timer = my_timer + 0.1;
   lights();
+  
+  float targetX = mouseX;
+  float targetY = mouseY;
+  x += (targetX - x)*easing;
+  y += (targetY - y)*easing;
   
   //座標設定
   pushMatrix(); 
   translate(width/2, height/2, -100); 
   
   //マウスの座標に向けてモグラが回転
-  float a = atan2(mouseY-height/2, mouseX-width/2);
+  float a = atan2(y-height/2, x-width/2);
   rotate(a+PI/2.0);
   
   //モグラの手足の動作
   pushMatrix();
-  //rotateY(PI*sin(my_timer)/72.0);
   rotateX(PI*sin(my_timer)/15.0);
   right();
   left();
@@ -36,13 +45,13 @@ void draw()
   
   //各部位呼び出し
   object();
-  nose();
   eyes();
   
   
   popMatrix(); 
   //マウスを押してるとき呼び出し
   if (mousePressed == true){
+    
       String s = "Food!";
       fill(255, 255, 255);
       pushMatrix();
@@ -51,15 +60,18 @@ void draw()
       //文字表示
       text(s,mouseX,mouseY,0);
       popMatrix();
+      
   }
   
   else{  //マウスを押してない時マウス位置に表示
+  
     pushMatrix();
     translate(mouseX,mouseY, 0);
     float c = atan2(mouseY-height/2, mouseX-width/2);
     rotate(c+PI);
     object2();
     popMatrix();
+    
   }
 
 } 
