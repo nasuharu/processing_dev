@@ -23,10 +23,10 @@ void draw(){
   my_timer = my_timer + 0.1;
   lights();
   
-  float targetX = mouseX;
-  float targetY = mouseY;
-  x += (targetX - x)*easing;
-  y += (targetY - y)*easing;
+  float X = mouseX;
+  float Y = mouseY;
+  x += (X - x)*easing;
+  y += (Y - y)*easing;
   
   //座標設定
   pushMatrix(); 
@@ -52,13 +52,17 @@ void draw(){
   //マウスを押してるとき呼び出し
   if (mousePressed == true){
     
-      String s = "Food!";
-      fill(255, 255, 255);
+      //String s = "Food!";
+      //fill(255, 255, 255);
       pushMatrix();
-      translate(-70, 0, 0);
-      textSize(50);
+      //translate(-70, 0, 0);
+      translate(mouseX,mouseY, 0);
+      float c = atan2(mouseY-height/2, mouseX-width/2);
+      rotate(c);
+      object2();
+      //textSize(50);
       //文字表示
-      text(s,mouseX,mouseY,0);
+      //text(s,mouseX,mouseY,0);
       popMatrix();
       
   }
