@@ -1,4 +1,5 @@
 void right(){
+  
   //right hand
   fill(244, 210, 168);
   pushMatrix();
@@ -15,4 +16,5 @@ void right(){
   scale(10, 80, 50);
   sphere(1);
   popMatrix();
+  
 }

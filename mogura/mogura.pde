@@ -2,7 +2,6 @@ float my_timer;
 float x = 0.0;
 float y = 0.0;
 
-
 void setup() { 
   
   size(800, 800, P3D); 
@@ -42,14 +41,13 @@ void draw(){
   right();
   left();
   popMatrix();
-  
   //各部位呼び出し
   object();
   eyes();
-  
-  
   popMatrix(); 
-  //マウスを押してるとき呼び出し
+  
+  
+  //マウスを押してるとき変化
   if (mousePressed == true){
     
       //String s = "Food!";
@@ -79,3 +77,9 @@ void draw(){
   }
 
 } 
+
+void keyPressed() {
+  if ( key == ' ' ) {
+    saveFrame( "kadai####.png" );
+  }
+}

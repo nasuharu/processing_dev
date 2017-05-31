@@ -1,4 +1,5 @@
 void object(){
+  
   //body
   fill(112, 69, 17);
   pushMatrix();
@@ -14,6 +15,5 @@ void object(){
   scale(30, 30, 30);
   sphere(1);
   popMatrix();
-  
 
 }

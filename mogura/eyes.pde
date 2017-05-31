@@ -1,4 +1,5 @@
   void eyes(){
+    
   if (mousePressed == false){
     fill(0, 0, 0);
     pushMatrix();
@@ -14,7 +15,7 @@
     sphere(1);
     popMatrix();
   }
-  else{
+  else{  //目が赤く光る
     fill(255, 0, 0);
     pushMatrix();
     translate(-30, -150, 60);

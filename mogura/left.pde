@@ -1,4 +1,5 @@
 void left(){
+  
   //left hand
   fill(244, 210, 168);
   pushMatrix();
@@ -6,8 +7,6 @@ void left(){
   scale(10, 80, 50);
   sphere(1);
   popMatrix();
-  
-  
   
   //left foot
   fill(244, 210, 168);
