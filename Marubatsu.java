@@ -1,5 +1,3 @@
-
-
 import java.awt.Toolkit;
 import java.time.Instant;
 import java.util.Random;
@@ -7,6 +5,7 @@ import java.util.Random;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
@@ -18,7 +17,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 
@@ -108,6 +107,7 @@ public class Marubatsu extends Application {
         gc.clearRect(0,  0,  285,  285);
         gc.save();
         gc.setLineWidth(4.0);
+        gc.setStroke(Color.BLACK);
         gc.strokeLine(40, 40, 160, 40);
         gc.strokeLine(40, 80, 160, 80);
         gc.strokeLine(40, 120, 160, 120);
@@ -291,22 +291,23 @@ public class Marubatsu extends Application {
 
         if (nSente == 1)  {
             if (nTe %2 == 0) {
-
-                //gc.getstroke(Color.BLUE);
+                gc.setStroke(Color.BLUE);
                 gc.strokeOval(cx - 10,  cy - 10,  20, 20);
                 data[pos] = 1;
             } else {
                 data[pos] = 2;
+                gc.setStroke(Color.RED);
                 gc.strokeLine(cx - 10,  cy - 10,  cx + 10,  cy + 10);
                 gc.strokeLine(cx - 10,  cy + 10,  cx + 10,  cy - 10);
             }
         } else if (nSente == 2) {
             if (nTe %2 == 0) {
                 data[pos] = 2;
-                //gc.getstroke(Color.RED);
+                gc.setStroke(Color.BLUE);
                 gc.strokeOval(cx - 10,  cy - 10,  20, 20);
             } else {
                 data[pos] = 1;
+                gc.setStroke(Color.RED);
                 gc.strokeLine(cx - 10,  cy - 10,  cx + 10,  cy + 10);
                 gc.strokeLine(cx - 10,  cy + 10,  cx + 10,  cy - 10);
             }
